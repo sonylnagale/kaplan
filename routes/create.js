@@ -10,10 +10,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-
+  console.log(req.body);
   request.post({
-    headers: {'content-type' : 'application/x-www-form-urlencoded'},
-    url: config.api_url  + '/create',
+    // headers: {'content-type' : 'application/x-www-form-urlencoded'},
+    url: config.api_url  + 'create',
     form: req.body,
   }, function(error, response, body){
     if (error === null) {

@@ -5,7 +5,7 @@ const request = require('request');
 const router = express.Router();
 
 router.get('/', function(req, res, next) {
-  request({url: config.api_url + "/assignments", json: true}, function(err, response, json) {
+  request({url: config.api_url, json: true}, function(err, response, json) {
     if (err) {
       throw err;
     }

@@ -26,7 +26,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/create', create);
-app.use('/create/new', create);
 app.use('/assignments/', read);
 app.use('/search/', search);
 

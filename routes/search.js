@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  request({url: config.api_url  + '/search/' + req.body.search, json: true}, function(err, response, json) {
+  request({url: config.api_url  + 'search/' + req.body.search, json: true}, function(err, response, json) {
     if (err) {
       throw err;
     }
