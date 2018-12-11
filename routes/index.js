@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const db = require('../firebase');
 
-/* GET home page. */
+const router = express.Router();
+
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  db.ref('assignments').on("value", function(snapshot) {
+    res.render('index', { assignments: snapshot.val()});
+  });
 });
 
 module.exports = router;

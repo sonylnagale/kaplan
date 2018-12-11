@@ -1,2 +1,11 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<a href="/create">Create</a> | <a href="/search">Search</a>
+
+{{#each assignments}}
+<div class="assignment">
+  <p><a href="/assignments/{{@key}}">{{@key}}</a></p>
+  <p>Name: {{name}}</p>
+  <p>Title: {{title}}</p>
+  <p>Tags: {{tags}}</p>
+  <p>Description: {{description}}</p>
+</div>
+{{/each}}
