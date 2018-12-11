@@ -11,3 +11,8 @@ a {
   border: 1px solid #333;
   margin: 5px;
 }
+
+nav {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
