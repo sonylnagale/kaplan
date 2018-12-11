@@ -1,5 +1,6 @@
 const express = require('express');
-const db = require('../firebase');
+const config = require('../config');
+const request = require('request');
 
 const router = express.Router();
 
@@ -8,8 +9,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  db.ref('tags/' + req.body.search).on("value", function(snapshot) {
-    res.render('search', { tag: req.body.search, data: snapshot.val()});
+  request({url: config.api_url  + '/search/' + req.body.search, json: true}, function(err, response, json) {
+    if (err) {
+      throw err;
+    }
+    res.render('search', { tag: req.body.search, data: json});
   });
 });
 

@@ -1,11 +1,15 @@
 const express = require('express');
-const db = require('../firebase');
+const config = require('../config');
+const request = require('request');
 
 const router = express.Router();
 
 router.get('/:id', function(req, res, next) {
-  db.ref('assignments/' + req.params.id).on("value", function(snapshot) {
-    res.render('read', { id: req.params.id, assignment: snapshot.val()});
+  request({url: config.api_url + req.params.id, json: true}, function(err, response, json) {
+    if (err) {
+      throw err;
+    }
+    res.render('read', { id: req.params.id, assignment: json});
   });
 });
 
