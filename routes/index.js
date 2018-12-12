@@ -13,4 +13,5 @@ router.get('/', function(req, res, next) {
     res.render('index', { assignments: json});
   });
 });
+
 module.exports = router;

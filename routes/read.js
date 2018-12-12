@@ -9,6 +9,7 @@ router.get('/:id', function(req, res, next) {
     if (err) {
       throw err;
     }
+    
     res.render('read', { id: req.params.id, assignment: json});
   });
 });
